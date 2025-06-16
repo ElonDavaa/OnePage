@@ -1,1 +1,526 @@
 /* You can add global styles to this file, and also import other style files */
+@import "tailwindcss";
+html,
+body {
+    margin: 0;
+    padding: 0;
+    color: white;
+    font-family: "Roboto", sans-serif;
+}
+* {
+    box-sizing: border-box;
+}
+.p-6 {
+    padding: 6px;
+}
+.bg-black {
+    background: black;
+}
+.text-white {
+    color: white;
+}
+.position-ab {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.position-ab img {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.min-h-screen {
+    min-height: 100vh;
+    position: relative;
+}
+
+.statusList {
+    width: 350px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    margin-bottom: 6px;
+}
+/* bg-gray-800 p-4 rounded text-center */
+.itemStyle {
+    font-size: 8px;
+    text-align: center;
+    padding: 4px;
+    border-radius: 3px;
+}
+.itemStyle span {
+    font-size: 15px;
+}
+.header {
+    height: 60px;
+    margin: 0 auto;
+    width: 95%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    border-bottom: 1px solid rgba(19, 197, 188, 0.2);
+}
+.header img {
+    width: 100px;
+}
+ul {
+    display: flex;
+    gap: 10px;
+    font-size: 8px;
+}
+.containerWeather {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    justify-content: center;
+}
+.upper-data {
+    width: 20px;
+}
+.weather-data .temperature {
+    font-size: 15px;
+}
+.date-data {
+    font-size: 5px;
+}
+
+.Datetime-interval {
+    display: flex;
+    justify-content: space-between;
+    gap: 1px;
+    position: absolute;
+    right: 50px;
+    font-size: 10px;
+}
+.input-date {
+    display: flex;
+    gap: 1px;
+}
+.input-date input {
+    width: 70px;
+    color: #fff;
+}
+.date-item {
+    width: 120px;
+}
+
+.mat-datepicker-toggle-default-icon {
+    color: #fff;
+}
+
+
+/* Арын өнгө, фонтын өнгө, padding өөрчлөх */
+.mat-datepicker-content {
+  background-color: #131212 !important; /* Арын өнгө */
+  color: white !important;              /* Фонтын өнгө */
+  padding: 8px !important;              /* Padding багасгах */
+}
+
+/* Popup доторхи текст */
+.mat-calendar-body-cell-content {
+  color: white !important;
+  font-size: 14px;
+  padding: 4px !important;
+}
+
+/* Сонгогдсон огноо */
+.mat-calendar-body-selected {
+  background-color: #2196f3 !important;
+  color: white !important;
+}
+
+
+
+.warning-text {
+    text-align: center;
+}
+
+/* progress */
+.progress-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 50px;
+}
+.progress {
+    position: relative;
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    color: #fff;
+    background: #083684 linear-gradient(to right, transparent 50%, var(--clr) 0);
+}
+.progress::before {
+    content: "";
+    display: block;
+    height: 100%;
+    margin-left: 50%;
+    transform-origin: left;
+    border-radius: 0 100% 100% 0/50%;
+}
+.progress::after {
+    content: "";
+    position: absolute;
+    inset: 10px;
+    border-radius: 50%;
+    background: #000000;
+}
+.progress::before {
+    background: var(--clr);
+    transform: rotate(calc(((var(--i) - 50) * 0.01turn)));
+}
+/* hervee utga ni 50% aas baga bol */
+.progress.less::before {
+    background: #083684;
+    transform: rotate(calc(((var(--i) - 0) * 0.01turn)));
+}
+
+.progress-container .procent {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.2rem;
+    z-index: 1;
+    font-weight: 400;
+}
+.progress-container .procent span {
+    font-size: 1rem;
+    font-weight: 400;
+}
+.progress-container .progress .progress-name {
+    width: 200px;
+    position: absolute;
+    top: 120%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    text-align: center;
+}
+.progress-container .progress .progress-label {
+    font-size: 12px;
+}
+.progress-container .progress .progress-total {
+    font-size: 15px;
+}
+
+/* grid grid-cols-3 gap-4 mt-6 */
+
+.base-progress {
+    width: 340px;
+    height: 600px;
+    display: grid;
+    grid-template-columns: auto;
+    gap: 30px;
+    margin-top: 60px;
+}
+.progress-container {
+    overflow: hidden;
+    border-radius: 5px;
+    width: 100%;
+    height: 100%;
+    background: #000000;
+    padding: 20px 0;
+    box-shadow: 8px 8px 8px 8px #657ca31e;
+}
+
+
+/* main container */
+.main-container {
+    display: grid;
+    grid-template-columns: auto;
+}
+.main-container .left-side {
+    display: flex;
+    gap: 60px;
+    margin-left: 10px;
+    overflow: hidden;
+}
+.main-container .left-side .charts {
+    border-radius: 5px;
+    width: 100%;
+    height: 800px;
+    background: #000000;
+    box-shadow: 8px 8px 8px 8px #657ca31e;
+}
+.main-container .left-side .chart-items {
+    display: flex;
+    width: 100%;
+    gap: 2px;
+}
+.main-container .left-side .charts .line-chart-div {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.main-container .left-side .charts .column-chart-div {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.width-chart {
+    width: 100%;
+}
+.main-container .right-side {
+    display: flex;
+    flex-direction: column;
+    margin-top: 60px;
+    margin-left: 60px;
+    margin-right: 60px;
+    border-radius: 5px;
+    background: #000000;
+    box-shadow: 8px 8px 8px 8px #657ca31e;
+}
+#chart-donut {
+  max-width: 400px;
+  margin: 15px auto;
+  padding: 0;
+}
+.title {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 18px;
+}
+.title-char {
+    text-align: center;
+    font-size: 18px;
+}
+.footer-link {
+    position: absolute;
+    right: 150px;
+    bottom: 20px;
+}
+
+.apexcharts-tooltip {
+  background-color: #222 !important;
+  color: #fff !important;
+  border: none !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3) !important;
+}
+.apexcharts-tooltip-title {
+  background-color: #333 !important;
+  color: #fff !important;
+}
+
+.apexcharts-menu {
+  background-color: #1e1e1e !important; /* хүссэн dark өнгө */
+  color: #fff !important;
+  border: 1px solid #444 !important;
+}
+
+.apexcharts-menu-item {
+  color: #fff !important;
+}
+input::placeholder {
+    color: #b6a8a8;
+}
+
+@media screen and (min-width: 1536px) { 
+    .header {
+    height: 60px;
+    margin: 0 auto;
+    width: 95%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    border-bottom: 1px solid rgba(19, 197, 188, 0.2);
+}
+.header img {
+    width: 120px;
+}
+ul {
+    display: flex;
+    gap: 30px;
+    font-size: 18px;
+}
+.containerWeather {
+    display: flex;
+    gap: 13px;
+    align-items: center;
+    justify-content: center;
+}
+.upper-data {
+    width: 30px;
+}
+.weather-data .temperature {
+    font-size: 25px;
+}
+.date-data {
+    font-size: 12px;
+}
+
+.Datetime-interval {
+    display: flex;
+    justify-content: space-between;
+    gap: 1px;
+    position: absolute;
+    right: 70px;
+    font-size: 15px;
+}
+.input-date {
+    display: flex;
+    gap: 10px;
+}
+.input-date input {
+    width: 110px;
+}
+.date-item {
+    width: 160px;
+}
+.warning-text {
+    text-align: center;
+}
+
+    .statusList {
+    width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    gap: 4px;
+    margin-bottom: 6px;
+    }
+    /* bg-gray-800 p-4 rounded text-center */
+    .itemStyle {
+        font-size: 18px;
+        text-align: center;
+        padding: 4px;
+        border-radius: 3px;
+    }
+    .itemStyle span {
+        font-size: 35px;
+    }
+
+    /* main container */
+    .main-container {
+        display: grid;
+        grid-template-columns: 55% auto;
+    }
+
+    .base-progress {
+    width: 80%;
+    height: 200px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 30px;
+    margin-top: 60px;
+    }
+    .progress-container {
+        overflow: hidden;
+        border-radius: 5px;
+        width: 100%;
+        height: 100%;
+        background: #000000;
+        padding: 20px 0;
+        box-shadow: 8px 8px 8px 8px #657ca31e;
+    }
+
+    .main-container .left-side {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    margin-left: 50px;
+    overflow: hidden;
+}
+.main-container .left-side .charts {
+    border-radius: 5px;
+    width: 100%;
+    height: 400px;
+    background: #000000;
+    box-shadow: 8px 8px 8px 8px #657ca31e;
+}
+.main-container .left-side .chart-items {
+    display: flex;
+    width: 100%;
+    gap: 2px;
+}
+.main-container .left-side .charts .line-chart-div {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.main-container .left-side .charts .column-chart-div {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.width-chart {
+    width: 100%;
+}
+.main-container .right-side {
+    display: flex;
+    flex-direction: column;
+    margin-top: 60px;
+    margin-left: 60px;
+    margin-right: 60px;
+    border-radius: 5px;
+    background: #000000;
+    box-shadow: 8px 8px 8px 8px #657ca31e;
+}
+ }
+
+@media (min-width: 1280px) and (max-width: 1536px) {
+    .base-progress {
+    width: 100%;
+    height: 200px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    margin-top: 60px;
+    }
+
+    .progress {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    color: #fff;
+    background: #083684 linear-gradient(to right, transparent 50%, var(--clr) 0);
+    }
+
+    .progress-container .progress .progress-label {
+    font-size: 10px;
+    }
+    .progress-container .progress .progress-total {
+        font-size: 14px;
+    }
+    .statusList {
+    width: 750px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    gap: 4px;
+    margin-bottom: 6px;
+}
+
+    .itemStyle {
+        font-size: 18px;
+        text-align: center;
+        padding: 4px;
+        border-radius: 3px;
+        }
+        .itemStyle span {
+            font-size: 35px;
+        }
+}  
+
