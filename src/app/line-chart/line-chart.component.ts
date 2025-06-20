@@ -12,7 +12,7 @@ import {
   ApexDataLabels,
   ApexTitleSubtitle,
   ApexStroke,
-  ApexGrid
+  ApexGrid,
 } from "ng-apexcharts";
 
 export type ChartOptions = {
@@ -61,16 +61,21 @@ export class LineChartComponent {
       },
       tooltip: {
         y: {
-          formatter: (val: number) => val.toLocaleString()
+          formatter: function(val: any) {
+          return (val / 1000000).toFixed(0);
+            }
         }
       },
       yaxis: {
+        title: {
+            text: "Price"
+          },
         labels: {
-          formatter: function (value:number) {
-            return value.toLocaleString(); // 10000 -> "10,000"
+            formatter: function(val: any) {
+              return (val / 1000000).toFixed(0);
+            }
           }
-        }
-      },
+        },
       dataLabels: {
         enabled: false
       },
@@ -78,8 +83,13 @@ export class LineChartComponent {
         curve: "straight"
       },
       title: {
-        text: "",
-        align: "left"
+        text: "Шуудангийн тоо",
+        align: "left",
+        style: {
+          fontSize: "12px",
+          color: "#fff",
+          Weight: "100"
+        },
       },
       
       grid: {
@@ -91,6 +101,9 @@ export class LineChartComponent {
       
       xaxis: {
         categories: this.lineCategories,
+        title: {
+          text: "Огноо"
+        },
         labels: {
           rotate: 0,
         }
@@ -110,6 +123,5 @@ export class LineChartComponent {
       }
     })
   }
-
 }
 

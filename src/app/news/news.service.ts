@@ -152,6 +152,4 @@ export class NewsService {
 
     return httpParams;
   }
-
-
 }

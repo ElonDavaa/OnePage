@@ -25,6 +25,11 @@ export const systemLinks = [
     link: 'http://192.168.9.23/IPSWeb',
   },
   {
+    logo: './../../../assets/images/system-mydel.svg',
+    systemName: 'MyDelivery',
+    link: 'http://www.mydelivery.mn',
+  },
+  {
     logo: './../../../assets/images/system-finance.svg',
     systemName: 'Veritech',
     link: 'http://192.168.3.199/login',
@@ -38,10 +43,5 @@ export const systemLinks = [
     logo: './../../../assets/images/system-green-hrm.svg',
     systemName: 'Green HRM',
     link: 'http://192.168.2.21',
-  },
-  {
-    logo: './../../../assets/images/system-mydel.svg',
-    systemName: 'MyDelivery',
-    link: 'http://www.mydelivery.mn',
   },
 ];

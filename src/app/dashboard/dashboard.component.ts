@@ -68,16 +68,16 @@ export class DashboardComponent implements OnInit {
 
 
   progressDataZahialga = [
-    { label: 'Нийслэл захиалга', value: 0, percent: 0, less: '' },
-    { label: 'Орон нутаг захиалга', value: 0, percent: 0, less: '' },
+    { label: 'Нийслэл', value: 0, percent: 0, less: '' },
+    { label: 'Орон нутаг', value: 0, percent: 0, less: '' },
   ];
   progressDataSoliltsoo = [
-    { label: 'Гарах солилцоо', value: 0, percent: 0, less: '' },
-    { label: 'Орох солилцоо', value: 0, percent: 0, less: '' },
+    { label: 'Гарах', value: 0, percent: 0, less: '' },
+    { label: 'Орох', value: 0, percent: 0, less: '' },
   ]
   progressDataOrlogo = [
-    { label: 'Дотоод орлого', value: 0, percent: 0, less: '' },
-    { label: 'Гадаад орлого', value: 0, percent: 0, less: '' },
+    { label: 'Дотоод', value: 0, percent: 0, less: '' },
+    { label: 'Гадаад', value: 0, percent: 0, less: '' },
   ]
 
   selectedType = 'Захиалга';
@@ -171,6 +171,7 @@ export class DashboardComponent implements OnInit {
     this.progressBarCity();
     this.progressBarChange();
     this.progressBarIncome();
+    this.getNewsApi();
   }
    // toog taslalaar formatlah method
    private getNumber (number: number) {
@@ -310,13 +311,16 @@ export class DashboardComponent implements OnInit {
     window.open(url, '_blank');
   }
 
+   onHide(): void {
+    this.selectedIndex = null;
+    this.showNews = false;
+  }
 
   onShow(index: number): void {
     this.selectedIndex = index;
     this.selectedNews = this.newsList[index];
     this.showNews = true;
   }
-
   onScroll(event: any) {
     if (!this.loadingNews) {
       if (event.target.offsetHeight + event.target.scrollTop + 10 >= event.target.scrollHeight) {
@@ -331,5 +335,11 @@ export class DashboardComponent implements OnInit {
         }
       }
     }
+  }
+  getNewsApi() {
+    this.newsService.getNews(null, this.pageable).subscribe(val => {
+            this.newsList = val;
+            this.total = this.newsService.getTotal();
+          });
   }
 }

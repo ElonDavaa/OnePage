@@ -1,6 +1,25 @@
 <div class="position-ab">
   <img src="assets/images/Desktop.png" alt="back">
 </div>
+    <ng-template #newsInfo>
+        <div class="ep-card news">
+          <button (click)="onHide()">
+            <i class="pi pi-times"></i>
+          </button>
+          <div class="news-body">
+            <h2>{{ selectedNews.title }}</h2>
+            <div class="ep-date">
+              <i class="pi pi-calendar"></i>
+              <p>
+                {{ selectedNews.createdDate | date : "yyyy-MM-dd" }}
+              </p>
+            </div>
+            <img class="news-banner" [src]="selectedNews.images ? selectedNews.images : 'assets/images/default.png'"
+              (error)="selectedNews.images = 'assets/images/default.png'" />
+            <p [innerHTML]="selectedNews.content"></p>
+          </div>
+        </div>
+      </ng-template>
     <div class="p-6 text-white min-h-screen bg-img">
     <div class="header">
       <img src="assets/images/epost-logo.svg" alt="Logo" />
@@ -22,10 +41,10 @@
         </div>
     </div>
     <div class="statusList">
-      <div class="itemStyle">Нийт орлого<br><span>{{ totalRevenueS }}</span></div>
+      <div class="itemStyle">Нийт орлого<br><span>{{ totalRevenueS }}<span style="font-size: 20px;">₮</span></span></div>
       <div class="itemStyle">Нийт захиалга<br><span>{{ totalOrdersS}}</span></div>
-      <div class="itemStyle">Нийт гардуулалт<br><span>{{ totalDeliveriesS}}</span></div>
       <div class="itemStyle">Нийт солилцоо<br><span>{{ totalChangesS}}</span></div>
+      <div class="itemStyle">Нийт гардуулалт<br><span>{{ totalDeliveriesS}}</span></div>
       <div class="itemStyle">Дундаж гардуулалт<br><span>{{ avgDeliveryS }}</span></div>
     </div>
     <!-- <app-date-search></app-date-search> -->
@@ -65,7 +84,22 @@
     <div class="main-container">
       <div class="left-side">
             <div class="base-progress">
-              <div class="progress-container">
+              <div class="progress-container-main">
+                <div class="base-title">Орлого</div>
+                <div class="progress-container">
+                    <div *ngFor="let item of progressDataOrlogo" class="bg-gray-800 p-4 rounded shadow progress {{item.less}}" style="--i: {{ item.percent }}; --clr: #3B82F6;">
+                      <div class="text-xs text-gray-400 procent">{{ item.percent }}<span>%</span></div>
+                      <div class="progress-name">
+                          <div class="progress-label">{{ item.label }}</div>
+                          <div class="progress-total">{{ item.value | number }} <span style="font-size: 10px;">₮</span></div>
+                      </div>
+                    </div>
+                </div>
+                
+              </div>
+              <div class="progress-container-main">
+                <div class="base-title">Захиалга</div>
+                <div class="progress-container">
                 <div *ngFor="let item of progressDataZahialga" class="bg-gray-800 p-4 rounded shadow progress {{item.less}}" style="--i: {{ item.percent }}; --clr: #3B82F6;">
                 <div class="text-xs text-gray-400 procent">{{ item.percent }}<span>%</span></div>
                 <div class="progress-name">
@@ -74,7 +108,10 @@
                 </div>
               </div>
               </div>
-              <div class="progress-container">
+              </div>
+              <div class="progress-container-main">
+                <div class="base-title">Солилцоо</div>
+                <div class="progress-container">
                 <div *ngFor="let item of progressDataSoliltsoo" class="bg-gray-800 p-4 rounded shadow progress {{item.less}}" style="--i: {{ item.percent }}; --clr: #3B82F6;">
                 <div class="text-xs text-gray-400 procent">{{ item.percent }}<span>%</span></div>
                 <div class="progress-name">
@@ -83,22 +120,15 @@
                 </div>
               </div>
               </div>
-              <div class="progress-container">
-                <div *ngFor="let item of progressDataOrlogo" class="bg-gray-800 p-4 rounded shadow progress {{item.less}}" style="--i: {{ item.percent }}; --clr: #3B82F6;">
-                <div class="text-xs text-gray-400 procent">{{ item.percent }}<span>%</span></div>
-                <div class="progress-name">
-                    <div class="progress-label">{{ item.label }}</div>
-                    <div class="progress-total">{{ item.value | number }}</div>
-                </div>
               </div>
-              </div>
+              
         </div>
         <div class="charts">
-          <div class="mt-6 mb-4">
+          <!-- <div class="mt-6 mb-4">
           <select [(ngModel)]="selectedType" (change)="onTypeChange(selectedType)" class="bg-gray-700 text-white p-2 rounded">
             <option *ngFor="let type of chartOptionsList">{{ type }}</option>
           </select>
-        </div>
+          </div> -->
         <div class="chart-items">
             <div class="line-chart-div">
               <p class="title-chart">Сүүлийн 12 сарын үзүүлэлт</p>
@@ -107,7 +137,7 @@
               </div>
             </div>
             <div class="column-chart-div">
-              <p class="title-chart">Нийт захиалга салбараар</p>
+              <p class="title-chart">Нийт захиалгын тоо салбараар</p>
               <div class="width-chart">
                   <app-column-chart></app-column-chart>
               </div>
@@ -120,31 +150,26 @@
           <p class="title">Хяналтын хугацаа</p>
           <app-simple-donut></app-simple-donut>
         </div>
-        <div>
-          <p class="title">Мэдээ</p>
+        <p class="title">Мэдээ</p>
+        <div class="news-container">
           <div class="ep-card list">
-        <div class="ep-news-list">
-          <div class="list" (scroll)="onScroll($event)">
-            <div class="news-item" [ngClass]="{ active: index === selectedIndex }"
-              *ngFor="let i of newsList; let index = index" (click)="onShow(index)">
-              <div class="item-banner">
-                <div class="banner-mask">
-                  <i class="pi pi-eye"></i>
-                </div>
-                <img [src]="i.images ? i.images : 'assets/images/default.png'"
-                  (error)="i.images = 'assets/images/default.png'" />
-              </div>
-              <div class="item-info">
-                <h4>{{ i.title }}</h4>
-                <div class="ep-date">
-                  <i class="pi pi-calendar"></i>
-                  <p>{{ i.createdDate | date : "yyyy-MM-dd" }}</p>
+            <div class="listitem">
+                <div class="news-item" [ngClass]="{ active: index === selectedIndex }"
+                  *ngFor="let i of newsList; let index = index" (click)="onShow(index)">
+                  <div class="item-banner">
+                    <img [src]="i.images ? i.images : 'assets/images/default.png'"
+                      (error)="i.images = 'assets/images/default.png'" />
+                  </div>
+                  <div class="item-info">
+                    <h4>{{ i.title }}</h4>
+                    <div class="ep-date">
+                      <i class="pi pi-calendar"></i>
+                      <p>{{ i.createdDate | date : "yyyy-MM-dd" }}</p>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-      </div>
+         </div>
         </div>
       </div>
       <div class="footer-link">

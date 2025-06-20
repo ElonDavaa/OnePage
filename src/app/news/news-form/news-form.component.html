@@ -1,0 +1,64 @@
+<div class="ep-layout">
+  <div class="ep-container">
+    <app-header></app-header>
+    <div class="ep-body">
+      <div class="ep-card admin">
+        <div class="caption">
+          <div class="flex align-items-center gap-2">
+            <button pButton pRipple class="p-button-text" icon="pi pi-chevron-left" pTooltip="Буцах"
+              tooltipPosition="bottom" routerLink="/news"></button>
+            <h3>{{ "Мэдээ бүртгэх" | translate }}</h3>
+          </div>
+          <button pButton pRipple label="Нийтлэх" icon="pi pi-save" (click)="onSubmit()" [disabled]="loading"></button>
+        </div>
+        <div class="ep-form-content">
+          <div class="ep-form-wrap wrap">
+            <div class="ep-form-wrap h-full">
+              <div class="ep-form-field">
+                <label class="mandatory">
+                  {{ "Гарчиг" | translate }}
+                </label>
+                <textarea pInputTextarea [(ngModel)]="title" placeholder="Гарчиг" class="h-full"></textarea>
+              </div>
+              <div class="ep-form-field">
+                <label>
+                  {{ "Баннер зураг" | translate }}
+                </label>
+                <p-fileUpload #fileload mode="basic" accept="image/*" [maxFileSize]="1000000"
+                  [uploadIcon]="'pi pi-trash'" uploadLabel="Зураг устгах" invalidFileSizeMessageSummary="Алдаа!"
+                  invalidFileSizeMessageDetail="Хавсаргах зургийн дээд хэмжээ 1 MB"
+                  invalidFileTypeMessageSummary="Алдаа!" invalidFileTypeMessageDetail="Зөвхөн зураг оруулах боломжтой."
+                  chooseLabel="Зураг оруулах" (onSelect)="onSelect($event)" (click)="imageFile ? onClear() : null">
+                </p-fileUpload>
+              </div>
+              <div class="ep-form-field h-full">
+                <label class="mandatory">
+                  {{ "Агуулга" | translate }}
+                </label>
+                <textarea pInputTextarea [(ngModel)]="content" placeholder="Агуулга" class="h-full">
+                </textarea>
+              </div>
+            </div>
+            <div class="ep-card news">
+              <div class="news-body">
+                <h2>{{ title ? title : "Гарчиг" }}</h2>
+                <div class="ep-date">
+                  <i class="pi pi-calendar"></i>
+                  <p>
+                    {{ createdDate | date : "yyyy-MM-dd" }}
+                  </p>
+                </div>
+                <img class="news-banner" [src]="isNewImage ? viewImage : images" (error)="
+                    isNewImage
+                      ? viewImage
+                      : (images = 'assets/images/default1.png')
+                  " />
+                <p [innerHTML]="content ? content : 'Агуулга'"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
