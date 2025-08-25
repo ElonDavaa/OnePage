@@ -15,6 +15,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatIconModule } from '@angular/material/icon';
 import { NewsService } from '../news/news.service';
+import { TableauComponent } from "./tableau/tableau.component";
 
 
 @Component({
@@ -22,8 +23,7 @@ import { NewsService } from '../news/news.service';
   selector: 'app-dashboard',
   imports: [CommonModule, FormsModule, LineChartComponent, ColumnChartComponent, SimpleDonutComponent, HttpClientModule, LucideAngularModule,
     MatFormFieldModule, MatDatepickerModule, MatInputModule,
-    MatNativeDateModule, MatIconModule
-  ],
+    MatNativeDateModule, MatIconModule, TableauComponent],
   templateUrl: './dashboard.component.html',
   styles: ``
 })
@@ -65,7 +65,8 @@ export class DashboardComponent implements OnInit {
   loadingNews: boolean = false;
   pageable = { size: 20, page: 0, sort: 'createdDate,desc' };
   total = 0;
-
+  
+  showTableau: boolean = false;
 
   progressDataZahialga = [
     { label: 'Нийслэл', value: 0, percent: 0, less: '' },
@@ -163,7 +164,7 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit(): void { 
-    this.getDateTite()
+    this.getDateTite();
     this.getTotalOrder();
     this.getTotalChange();
     this.getTotalDelivery();
@@ -243,6 +244,7 @@ export class DashboardComponent implements OnInit {
     return `${year}-${month}-${day}`;
   }
 
+ 
    //Нийт захиалга
   private getTotalOrder () {
     this.http.get("http://192.168.3.207:55/api/Datas/totalOrders").subscribe((result:any) => {
@@ -314,6 +316,13 @@ export class DashboardComponent implements OnInit {
    onHide(): void {
     this.selectedIndex = null;
     this.showNews = false;
+  }
+  onHideTableau(): void {
+    this.showTableau = false;
+  }
+
+  onShowTableau(): void {
+    this.showTableau = true;
   }
 
   onShow(index: number): void {

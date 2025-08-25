@@ -1,26 +1,10 @@
-<div class="position-ab">
-  <img src="assets/images/Desktop.png" alt="back">
-</div>
-    <ng-template #newsInfo>
-        <div class="ep-card news">
-          <button (click)="onHide()">
-            <i class="pi pi-times"></i>
-          </button>
-          <div class="news-body">
-            <h2>{{ selectedNews.title }}</h2>
-            <div class="ep-date">
-              <i class="pi pi-calendar"></i>
-              <p>
-                {{ selectedNews.createdDate | date : "yyyy-MM-dd" }}
-              </p>
-            </div>
-            <img class="news-banner" [src]="selectedNews.images ? selectedNews.images : 'assets/images/default.png'"
-              (error)="selectedNews.images = 'assets/images/default.png'" />
-            <p [innerHTML]="selectedNews.content"></p>
-          </div>
-        </div>
-      </ng-template>
-    <div class="p-6 text-white min-h-screen bg-img">
+
+<div *ngIf="!showNews; else newsInfo">
+  <div class="position-ab">
+    <img src="assets/images/Desktop.png" alt="back">
+  </div>
+ 
+  <div *ngIf="!showTableau; else tableauInfo"  class="p-6 text-white min-h-screen bg-img">
     <div class="header">
       <img src="assets/images/epost-logo.svg" alt="Logo" />
         <ul>
@@ -84,7 +68,7 @@
     <div class="main-container">
       <div class="left-side">
             <div class="base-progress">
-              <div class="progress-container-main">
+              <div class="progress-container-main" (click) = "onShowTableau()">
                 <div class="base-title">Орлого</div>
                 <div class="progress-container">
                     <div *ngFor="let item of progressDataOrlogo" class="bg-gray-800 p-4 rounded shadow progress {{item.less}}" style="--i: {{ item.percent }}; --clr: #3B82F6;">
@@ -97,7 +81,7 @@
                 </div>
                 
               </div>
-              <div class="progress-container-main">
+              <div class="progress-container-main" (click) = "onShowTableau()">
                 <div class="base-title">Захиалга</div>
                 <div class="progress-container">
                 <div *ngFor="let item of progressDataZahialga" class="bg-gray-800 p-4 rounded shadow progress {{item.less}}" style="--i: {{ item.percent }}; --clr: #3B82F6;">
@@ -109,7 +93,7 @@
               </div>
               </div>
               </div>
-              <div class="progress-container-main">
+              <div class="progress-container-main" (click) = "onShowTableau()">
                 <div class="base-title">Солилцоо</div>
                 <div class="progress-container">
                 <div *ngFor="let item of progressDataSoliltsoo" class="bg-gray-800 p-4 rounded shadow progress {{item.less}}" style="--i: {{ item.percent }}; --clr: #3B82F6;">
@@ -183,3 +167,37 @@
         </div>
     </div>
   </div>
+  <ng-template #tableauInfo>
+    <div class="tableau-position">
+      <button (click)="onHideTableau()">
+          <i class="pi pi-times"></i>
+      </button>
+    <div class="ep-card-tableau">
+      <app-tableau></app-tableau>
+    </div>
+  </div>
+  </ng-template>
+</div>
+<ng-template #newsInfo>
+        <div class="ep-card news text-black">
+          <button (click)="onHide()">
+            <i class="pi pi-times"></i>
+          </button>
+          <div class="news-body">
+            
+            <h1>{{ selectedNews.title }}</h1>
+            <div class="ep-date">
+              <i class="pi pi-calendar"></i>
+              <p>
+                {{ selectedNews.createdDate | date : "yyyy-MM-dd" }}
+              </p>
+            </div>
+            <img class="news-banner" [src]="selectedNews.images ? selectedNews.images : 'assets/images/default.png'"
+              (error)="selectedNews.images = 'assets/images/default.png'" />
+            <p [innerHTML]="selectedNews.content"></p>
+          </div>
+          
+        </div>    
+</ng-template>
+    
+    

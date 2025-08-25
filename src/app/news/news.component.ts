@@ -1,4 +1,4 @@
-import { Component, NgModule } from '@angular/core';
+import { Component, inject, NgModule } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 
@@ -14,6 +14,7 @@ import { API_FILE_DOWNLOAD } from '../shared/constants';
 import { mergeMap, of } from 'rxjs';
 import { HeaderComponent } from "./header/header.component";
 import { CommonModule } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
 
 export interface ListColumn {
   field: string;
@@ -29,6 +30,7 @@ export interface ListColumn {
   imports: [HeaderComponent, CommonModule, TableModule, CalendarModule, PaginatorModule, TranslateModule, FormsModule],
 })
 export class NewsComponent {
+
   customDateMatchOptions!: SelectItem[];
   total: number = 0;
   first: number = 0;
