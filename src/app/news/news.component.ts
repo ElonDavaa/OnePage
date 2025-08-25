@@ -86,7 +86,7 @@ export class NewsComponent {
     this.list = this.activatedRoute.snapshot.data['item'];
     this.total = this.service.getTotal();
   }
-
+   
   logOut() {
     const translate = this.translateService;
     this.confirmationService.confirm({
@@ -138,7 +138,7 @@ export class NewsComponent {
         return this.service.delete(item.id);
       })
     ).subscribe(() => {
-      this.messageService.add({ severity: 'success', summary: 'Амжилттай', detail: 'Мэдээг амжилттай устгалаа.' });
+      this.messageService.add({ severity: 'success', summary: 'Амжилттай', detail: 'Мэдээ амжилттай устгалаа.' });
       this.fetch();
     }, (error) => {
       if (error.status === 401) {
