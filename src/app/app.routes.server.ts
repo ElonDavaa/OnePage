@@ -15,7 +15,7 @@ export const serverRoutes: ServerRoute[] = [
   },
   {
     path: 'news',
-    renderMode: RenderMode.Prerender   // Мэдээний жагсаалт
+    renderMode: RenderMode.Client   // Мэдээний жагсаалт
   },
   {
     path: 'news/:id',
