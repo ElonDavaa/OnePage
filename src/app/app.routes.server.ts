@@ -19,11 +19,11 @@ export const serverRoutes: ServerRoute[] = [
   },
   {
     path: 'news/:id',
-    renderMode: RenderMode.Prerender,
-        getPrerenderParams: async () => {
-          // Жишээ нь серверээс id жагсаалт авах
-          const ids = [1009, 6001, 6002, 6003]; 
-          return ids.map(id => ({ id: id.toString() }));
-        }
+    renderMode: RenderMode.Client,
+        // getPrerenderParams: async () => {
+        //   // Жишээ нь серверээс id жагсаалт авах
+        //   const ids = [1009, 6001, 6002, 6003]; 
+        //   return ids.map(id => ({ id: id.toString() }));
+        // }
   }
 ];

@@ -34,7 +34,7 @@ export class NewsComponent {
   customDateMatchOptions!: SelectItem[];
   total: number = 0;
   first: number = 0;
-
+  
   pageable: Pageable = {
     size: 20,
     page: 0,
