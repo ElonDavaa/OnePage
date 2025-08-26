@@ -1,0 +1,38 @@
+.flex-space-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.flex-space-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-space-end {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.flex-space-start {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.background-contain {
+  display: block;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.background-cover {
+  display: block;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+

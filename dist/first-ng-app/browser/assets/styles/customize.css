@@ -1,0 +1,238 @@
+
+.p-button {
+  padding: 0 16px;
+  height: 40px;
+  background: var(--epost-400);
+  border: 1px solid var(--epost-400);
+  font-size: var(--font-14);
+}
+.p-button:focus {
+  box-shadow: none;
+}
+
+.p-button.p-button-info:enabled:focus {
+  box-shadow: none;
+}
+
+.p-button.p-button-text {
+  color: var(--epost-400);
+}
+
+.p-button.p-button-text:enabled:hover {
+  background: var(--epost-50);
+  color: var(--epost-500);
+}
+
+.p-button.p-button-text:enabled:active {
+  background: var(--epost-100);
+  color: var(--epost-500);
+}
+
+.p-button.p-button-outlined {
+  color: var(--epost-400);
+  border-color: var(--epost-400);
+}
+
+.p-button.p-button-outlined:enabled:hover {
+  background: var(--epost-50);
+  color: var(--epost-500);
+}
+
+.p-button.p-button-outlined:enabled:active {
+  background: var(--epost-100);
+  color: var(--epost-500);
+}
+
+.p-button:enabled:hover {
+  background: var(--epost-500);
+  border: 1px solid var(--epost-500);
+}
+
+.p-button:enabled:active {
+  background: var(--epost-600);
+  border: 1px solid var(--epost-600);
+}
+
+.p-button-label {
+  font-weight: 500;
+}
+
+.p-datatable .p-datatable-thead > tr > th {
+  color: var(--black-500);
+  font-size: var(--font-14);
+  font-weight: 400;
+}
+
+.p-datatable .p-sortable-column:not(.p-highlight):hover {
+  background: var(--black-50);
+}
+
+.p-datatable .p-sortable-column.p-highlight {
+  background: var(--epost-50);
+  color: var(--epost-400);
+}
+
+.p-datatable .p-sortable-column.p-highlight .p-sortable-column-icon {
+  color: var(--epost-400);
+}
+
+.p-datatable .p-sortable-column.p-highlight:hover {
+  background: var(--epost-50);
+  color: var(--epost-400);
+}
+
+.p-datatable .p-sortable-column.p-highlight:hover .p-sortable-column-icon {
+  color: var(--epost-400);
+}
+
+.p-datatable .p-sortable-column:focus {
+  box-shadow: none;
+}
+
+.p-inputtext:enabled:hover {
+  border-color: var(--epost-400);
+}
+
+.p-inputtext:enabled:focus {
+  border-color: var(--epost-400);
+  box-shadow: none;
+}
+
+.p-inputtext {
+  height: 40px;
+  color: var(--black-500);
+  font-size: var(--font-14);
+  font-weight: 600;
+  border-color: var(--black-100);
+}
+
+.p-dropdown:not(.p-disabled):hover {
+  border-color: var(--epost-400);
+}
+
+.p-dropdown:not(.p-disabled).p-focus {
+  box-shadow: none;
+  border-color: var(--epost-400);
+}
+
+.p-dropdown-panel .p-dropdown-items .p-dropdown-item {
+  color: var(--black-500);
+}
+
+.p-dropdown-panel .p-dropdown-items .p-dropdown-item.p-highlight {
+  background: var(--epost-50);
+  color: var(--epost-400);
+}
+
+.p-dropdown-panel .p-dropdown-items .p-dropdown-item:not(.p-highlight):not(.p-disabled):hover {
+  background: var(--black-50);
+  color: var(--black-500);
+}
+
+.p-datatable .p-paginator-bottom {
+  border: none;
+}
+
+.p-datatable .p-datatable-tbody > tr:focus {
+  outline: none;
+}
+
+.p-paginator .p-paginator-current {
+  cursor: default;
+}
+
+.p-link:focus {
+  box-shadow: none;
+}
+
+.p-paginator .p-paginator-pages .p-paginator-page.p-highlight {
+  background: var(--epost-50);
+  color: var(--epost-500);
+}
+
+.p-paginator .p-paginator-first:not(.p-disabled):not(.p-highlight):hover,
+.p-paginator .p-paginator-prev:not(.p-disabled):not(.p-highlight):hover,
+.p-paginator .p-paginator-next:not(.p-disabled):not(.p-highlight):hover,
+.p-paginator .p-paginator-last:not(.p-disabled):not(.p-highlight):hover,
+.p-paginator .p-paginator-pages .p-paginator-page:not(.p-highlight):hover {
+  background: var(--black-50);
+  font-weight: 500;
+}
+
+.p-dialog .p-dialog-header {
+  padding: 12px 16px;
+  background: var(--epost-400);
+  color: var(--white);
+  border-top-right-radius: var(--border-8);
+  border-top-left-radius: var(--border-8);
+}
+
+.p-dialog .p-dialog-header .p-dialog-title {
+  font-size: var(--font-16);
+  font-weight: 500;
+}
+
+.p-dialog .p-dialog-header .p-dialog-header-icon {
+  color: var(--white);
+}
+
+.p-dialog .p-dialog-header .p-dialog-header-icon:enabled:hover {
+  background: var(--white);
+  color: var(--epost-400);
+}
+
+.p-dialog .p-dialog-content {
+  padding: 20px 16px 40px;
+}
+
+.p-dialog .p-dialog-footer {
+  padding: 0 16px 16px;
+  gap: 12px;
+}
+
+.p-dialog .p-dialog-footer button {
+  margin: 0;
+}
+
+.p-dialog.p-confirm-dialog .p-confirm-dialog-icon {
+  font-size: var(--font-24);
+}
+
+.p-column-filter-menu-button:hover {
+  background: var(--epost-50);
+  color: var(--epost-400);
+}
+
+.p-column-filter-menu-button.p-column-filter-menu-button-open,
+.p-column-filter-menu-button.p-column-filter-menu-button-open:hover {
+  background: var(--epost-50);
+  color: var(--epost-500);
+}
+
+.p-button.p-fileupload-choose {
+  padding: 9px 16px;
+  height: 40px;
+  background-color: var(--mirror);
+  color: var(--black-300);
+  font-size: var(--font-14);
+  font-weight: 400;
+  line-height: 22px;
+  border: 1.5px solid var(--black-100);
+  border-radius: var(--border-8);
+}
+
+.p-button.p-fileupload-choose .p-button-label {
+  font-weight: 400;
+  flex: unset;
+  transition: 0s;
+}
+
+.p-button.p-fileupload-choose:focus {
+  box-shadow: none;
+}
+
+.p-fileupload-choose:not(.p-disabled):hover {
+  background: var(--mirror);
+  color: var(--epost-400);
+  border-color: var(--epost-400);
+}

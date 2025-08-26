@@ -1,0 +1,383 @@
+
+html::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+html::-webkit-scrollbar-track {
+  background: var(--black-50);
+  border-radius: 4px;
+}
+
+html::-webkit-scrollbar-thumb {
+  background: var(--black-200);
+  border-radius: 4px;
+}
+
+html::-webkit-scrollbar-thumb:hover {
+  background: var(--black-300);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+}
+
+
+h2 {
+  font-size: var(--font-28);
+  font-style: normal;
+  font-weight: 700;
+  line-height: 140%;
+}
+
+h3 {
+  font-size: var(--font-20);
+  font-style: normal;
+  font-weight: 700;
+  line-height: 100%;
+}
+
+h4 {
+  font-size: var(--font-14);
+  font-style: normal;
+  font-weight: 600;
+  line-height: 150%;
+}
+
+.ep-container {
+  margin: 0 auto;
+  width: fit-content;
+}
+
+
+
+.ep-date {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 3px;
+}
+
+.ep-date i,
+.ep-date p {
+  color: var(--black-300);
+  font-size: var(--font-12);
+  line-height: 12px;
+}
+
+.ep-layout {
+  height: 100vh;
+  padding: 24px;
+}
+
+.ep-layout .ep-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.ep-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 40px;
+}
+.ep-header button {
+  width: 40px;
+  height: 40px;
+}
+.ep-header img {
+  padding: 0 12px;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.ep-header ul {
+  padding: 0;
+  display: flex;
+  gap: 12px;
+}
+
+.ep-header ul li {
+  list-style: none;
+}
+
+.ep-header ul li a {
+  padding: 4px 20px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  text-decoration: none;
+  color: var(--black-300);
+  font-size: var(--font-14);
+  font-weight: 700;
+  line-height: 150%;
+  transition: var(--animation-long);
+}
+
+.ep-header ul li a:hover {
+  color: var(--epost-400);
+}
+
+.ep-body {
+  display: flex;
+  gap: 24px;
+}
+
+.ep-body .ep-card {
+  height: calc(100vh - 110px);
+  width: 1064px;
+}
+
+.ep-body .ep-card.news {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.ep-body .ep-card.news button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  min-height: 32px;
+  max-height: 32px;
+  background-color: var(--black-50);
+  border: 0;
+  border-radius: var(--border-8);
+  align-self: flex-end;
+  cursor: pointer;
+  outline: none;
+  transition: var(--animation-long);
+}
+
+.ep-body .ep-card.news button i {
+  color: var(--black-500);
+  font-size: var(--font-14);
+  font-weight: 700;
+  line-height: normal;
+  transition: var(--animation-long);
+}
+
+.ep-body .ep-card.news button:hover {
+  background-color: var(--black-500);
+}
+
+.ep-body .ep-card.news button:hover i {
+  color: var(--white);
+}
+
+.news-body {
+  padding: 0 32px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.news-body p {
+  color: var(--black-500);
+  font-size: var(--font-16);
+  font-weight: 400;
+  line-height: 150%;
+}
+
+.news-body .ep-date i,
+.news-body .ep-date p {
+  color: var(--black-300);
+  font-size: var(--font-14);
+  line-height: 14px;
+}
+
+.news-body .news-banner {
+  margin: 12px 0;
+  width: 100%;
+  height: 200px;
+  border-radius: var(--border-16);
+  object-fit: cover;
+  border: 1px solid var(--black-100);
+}
+
+.ep-body .ep-card.list {
+  width: 400px;
+  min-width: 400px;
+  max-width: 400px;
+}
+
+.ep-news-list {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.ep-news-list .list {
+  padding-right: 6px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.news-item {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 16px;
+  cursor: pointer;
+}
+
+.news-item .item-banner {
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+
+.news-item .item-banner img {
+  object-fit: cover;
+  width: 80px;
+  height: 80px;
+  border-radius: var(--border-8);
+}
+
+.news-item .banner-mask {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  padding: 12px 32px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--black-500);
+  flex-direction: column;
+  gap: 10px;
+  border-radius: var(--border-8);
+  opacity: 0;
+  transition: opacity var(--animation-long);
+}
+
+.news-item .banner-mask i {
+  color: var(--white);
+  font-size: var(--font-24);
+}
+
+.news-item .item-info {
+  height: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.news-item .item-info h4 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: var(--animation-long);
+}
+
+.news-item.active .banner-mask,
+.news-item:hover .banner-mask {
+  opacity: 1;
+}
+
+.news-item.active h4,
+.news-item:hover h4 {
+  color: var(--black-300);
+}
+
+.ep-body .ep-card.admin {
+  padding: 16px 0 0;
+  width: 1488px;
+}
+
+.ep-body .ep-card.admin .caption {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px 16px;
+}
+
+.ep-body .ep-card.admin p-table .p-datatable .p-datatable-wrapper {
+  height: calc(100vh - 250px);
+}
+
+.ep-form-content {
+  padding: 0 16px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ep-form-wrap {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.ep-form-wrap.wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.ep-form-wrap.wrap .ep-card {
+  padding: 0;
+  height: calc(100vh - 198px);
+  width: 100%;
+}
+
+.ep-form-wrap.wrap .ep-card .news-body {
+  padding: 0 16px;
+  border-left: 1px solid var(--black-50);
+}
+
+.ep-form-wrap.wrap .ep-card .news-body h2,
+.ep-form-wrap.wrap .ep-card .news-body p {
+  word-break: break-word;
+}
+
+.ep-form-field {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.ep-form-field label {
+  color: var(--black-500);
+  font-size: var(--font-14);
+  font-weight: 400;
+}
+
+.ep-form-field label.mandatory::after {
+  content: "*";
+  color: var(--epost-400);
+  font-size: var(--font-14);
+  font-weight: 500;
+}
+
+textarea {
+  height: 64px;
+  resize: none;
+}
+
+textarea::placeholder {
+  color: var(--black-300);
+  font-size: var(--font-14);
+  font-weight: 400;
+}

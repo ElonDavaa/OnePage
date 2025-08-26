@@ -1,0 +1,480 @@
+export default `<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>FirstNgApp</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<style>@font-face{font-family:'Roboto';font-style:italic;font-weight:100 900;font-stretch:100%;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v48/KFO5CnqEu92Fr1Mu53ZEC9_Vu3r1gIhOszmkC3kaWzU.woff2) format('woff2');unicode-range:U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;}@font-face{font-family:'Roboto';font-style:italic;font-weight:100 900;font-stretch:100%;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v48/KFO5CnqEu92Fr1Mu53ZEC9_Vu3r1gIhOszmkAnkaWzU.woff2) format('woff2');unicode-range:U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;}@font-face{font-family:'Roboto';font-style:italic;font-weight:100 900;font-stretch:100%;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v48/KFO5CnqEu92Fr1Mu53ZEC9_Vu3r1gIhOszmkCnkaWzU.woff2) format('woff2');unicode-range:U+1F00-1FFF;}@font-face{font-family:'Roboto';font-style:italic;font-weight:100 900;font-stretch:100%;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v48/KFO5CnqEu92Fr1Mu53ZEC9_Vu3r1gIhOszmkBXkaWzU.woff2) format('woff2');unicode-range:U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;}@font-face{font-family:'Roboto';font-style:italic;font-weight:100 900;font-stretch:100%;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v48/KFO5CnqEu92Fr1Mu53ZEC9_Vu3r1gIhOszmkenkaWzU.woff2) format('woff2');unicode-range:U+0302-0303, U+0305, U+0307-0308, U+0310, U+0312, U+0315, U+031A, U+0326-0327, U+032C, U+032F-0330, U+0332-0333, U+0338, U+033A, U+0346, U+034D, U+0391-03A1, U+03A3-03A9, U+03B1-03C9, U+03D1, U+03D5-03D6, U+03F0-03F1, U+03F4-03F5, U+2016-2017, U+2034-2038, U+203C, U+2040, U+2043, U+2047, U+2050, U+2057, U+205F, U+2070-2071, U+2074-208E, U+2090-209C, U+20D0-20DC, U+20E1, U+20E5-20EF, U+2100-2112, U+2114-2115, U+2117-2121, U+2123-214F, U+2190, U+2192, U+2194-21AE, U+21B0-21E5, U+21F1-21F2, U+21F4-2211, U+2213-2214, U+2216-22FF, U+2308-230B, U+2310, U+2319, U+231C-2321, U+2336-237A, U+237C, U+2395, U+239B-23B7, U+23D0, U+23DC-23E1, U+2474-2475, U+25AF, U+25B3, U+25B7, U+25BD, U+25C1, U+25CA, U+25CC, U+25FB, U+266D-266F, U+27C0-27FF, U+2900-2AFF, U+2B0E-2B11, U+2B30-2B4C, U+2BFE, U+3030, U+FF5B, U+FF5D, U+1D400-1D7FF, U+1EE00-1EEFF;}@font-face{font-family:'Roboto';font-style:italic;font-weight:100 900;font-stretch:100%;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v48/KFO5CnqEu92Fr1Mu53ZEC9_Vu3r1gIhOszmkaHkaWzU.woff2) format('woff2');unicode-range:U+0001-000C, U+000E-001F, U+007F-009F, U+20DD-20E0, U+20E2-20E4, U+2150-218F, U+2190, U+2192, U+2194-2199, U+21AF, U+21E6-21F0, U+21F3, U+2218-2219, U+2299, U+22C4-22C6, U+2300-243F, U+2440-244A, U+2460-24FF, U+25A0-27BF, U+2800-28FF, U+2921-2922, U+2981, U+29BF, U+29EB, U+2B00-2BFF, U+4DC0-4DFF, U+FFF9-FFFB, U+10140-1018E, U+10190-1019C, U+101A0, U+101D0-101FD, U+102E0-102FB, U+10E60-10E7E, U+1D2C0-1D2D3, U+1D2E0-1D37F, U+1F000-1F0FF, U+1F100-1F1AD, U+1F1E6-1F1FF, U+1F30D-1F30F, U+1F315, U+1F31C, U+1F31E, U+1F320-1F32C, U+1F336, U+1F378, U+1F37D, U+1F382, U+1F393-1F39F, U+1F3A7-1F3A8, U+1F3AC-1F3AF, U+1F3C2, U+1F3C4-1F3C6, U+1F3CA-1F3CE, U+1F3D4-1F3E0, U+1F3ED, U+1F3F1-1F3F3, U+1F3F5-1F3F7, U+1F408, U+1F415, U+1F41F, U+1F426, U+1F43F, U+1F441-1F442, U+1F444, U+1F446-1F449, U+1F44C-1F44E, U+1F453, U+1F46A, U+1F47D, U+1F4A3, U+1F4B0, U+1F4B3, U+1F4B9, U+1F4BB, U+1F4BF, U+1F4C8-1F4CB, U+1F4D6, U+1F4DA, U+1F4DF, U+1F4E3-1F4E6, U+1F4EA-1F4ED, U+1F4F7, U+1F4F9-1F4FB, U+1F4FD-1F4FE, U+1F503, U+1F507-1F50B, U+1F50D, U+1F512-1F513, U+1F53E-1F54A, U+1F54F-1F5FA, U+1F610, U+1F650-1F67F, U+1F687, U+1F68D, U+1F691, U+1F694, U+1F698, U+1F6AD, U+1F6B2, U+1F6B9-1F6BA, U+1F6BC, U+1F6C6-1F6CF, U+1F6D3-1F6D7, U+1F6E0-1F6EA, U+1F6F0-1F6F3, U+1F6F7-1F6FC, U+1F700-1F7FF, U+1F800-1F80B, U+1F810-1F847, U+1F850-1F859, U+1F860-1F887, U+1F890-1F8AD, U+1F8B0-1F8BB, U+1F8C0-1F8C1, U+1F900-1F90B, U+1F93B, U+1F946, U+1F984, U+1F996, U+1F9E9, U+1FA00-1FA6F, U+1FA70-1FA7C, U+1FA80-1FA89, U+1FA8F-1FAC6, U+1FACE-1FADC, U+1FADF-1FAE9, U+1FAF0-1FAF8, U+1FB00-1FBFF;}@font-face{font-family:'Roboto';font-style:italic;font-weight:100 900;font-stretch:100%;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v48/KFO5CnqEu92Fr1Mu53ZEC9_Vu3r1gIhOszmkCXkaWzU.woff2) format('woff2');unicode-range:U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;}@font-face{font-family:'Roboto';font-style:italic;font-weight:100 900;font-stretch:100%;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v48/KFO5CnqEu92Fr1Mu53ZEC9_Vu3r1gIhOszmkCHkaWzU.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;}@font-face{font-family:'Roboto';font-style:italic;font-weight:100 900;font-stretch:100%;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v48/KFO5CnqEu92Fr1Mu53ZEC9_Vu3r1gIhOszmkBnka.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}@font-face{font-family:'Roboto';font-style:normal;font-weight:100 900;font-stretch:100%;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v48/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3GUBGEe.woff2) format('woff2');unicode-range:U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;}@font-face{font-family:'Roboto';font-style:normal;font-weight:100 900;font-stretch:100%;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v48/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3iUBGEe.woff2) format('woff2');unicode-range:U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;}@font-face{font-family:'Roboto';font-style:normal;font-weight:100 900;font-stretch:100%;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v48/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3CUBGEe.woff2) format('woff2');unicode-range:U+1F00-1FFF;}@font-face{font-family:'Roboto';font-style:normal;font-weight:100 900;font-stretch:100%;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v48/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3-UBGEe.woff2) format('woff2');unicode-range:U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;}@font-face{font-family:'Roboto';font-style:normal;font-weight:100 900;font-stretch:100%;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v48/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMawCUBGEe.woff2) format('woff2');unicode-range:U+0302-0303, U+0305, U+0307-0308, U+0310, U+0312, U+0315, U+031A, U+0326-0327, U+032C, U+032F-0330, U+0332-0333, U+0338, U+033A, U+0346, U+034D, U+0391-03A1, U+03A3-03A9, U+03B1-03C9, U+03D1, U+03D5-03D6, U+03F0-03F1, U+03F4-03F5, U+2016-2017, U+2034-2038, U+203C, U+2040, U+2043, U+2047, U+2050, U+2057, U+205F, U+2070-2071, U+2074-208E, U+2090-209C, U+20D0-20DC, U+20E1, U+20E5-20EF, U+2100-2112, U+2114-2115, U+2117-2121, U+2123-214F, U+2190, U+2192, U+2194-21AE, U+21B0-21E5, U+21F1-21F2, U+21F4-2211, U+2213-2214, U+2216-22FF, U+2308-230B, U+2310, U+2319, U+231C-2321, U+2336-237A, U+237C, U+2395, U+239B-23B7, U+23D0, U+23DC-23E1, U+2474-2475, U+25AF, U+25B3, U+25B7, U+25BD, U+25C1, U+25CA, U+25CC, U+25FB, U+266D-266F, U+27C0-27FF, U+2900-2AFF, U+2B0E-2B11, U+2B30-2B4C, U+2BFE, U+3030, U+FF5B, U+FF5D, U+1D400-1D7FF, U+1EE00-1EEFF;}@font-face{font-family:'Roboto';font-style:normal;font-weight:100 900;font-stretch:100%;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v48/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMaxKUBGEe.woff2) format('woff2');unicode-range:U+0001-000C, U+000E-001F, U+007F-009F, U+20DD-20E0, U+20E2-20E4, U+2150-218F, U+2190, U+2192, U+2194-2199, U+21AF, U+21E6-21F0, U+21F3, U+2218-2219, U+2299, U+22C4-22C6, U+2300-243F, U+2440-244A, U+2460-24FF, U+25A0-27BF, U+2800-28FF, U+2921-2922, U+2981, U+29BF, U+29EB, U+2B00-2BFF, U+4DC0-4DFF, U+FFF9-FFFB, U+10140-1018E, U+10190-1019C, U+101A0, U+101D0-101FD, U+102E0-102FB, U+10E60-10E7E, U+1D2C0-1D2D3, U+1D2E0-1D37F, U+1F000-1F0FF, U+1F100-1F1AD, U+1F1E6-1F1FF, U+1F30D-1F30F, U+1F315, U+1F31C, U+1F31E, U+1F320-1F32C, U+1F336, U+1F378, U+1F37D, U+1F382, U+1F393-1F39F, U+1F3A7-1F3A8, U+1F3AC-1F3AF, U+1F3C2, U+1F3C4-1F3C6, U+1F3CA-1F3CE, U+1F3D4-1F3E0, U+1F3ED, U+1F3F1-1F3F3, U+1F3F5-1F3F7, U+1F408, U+1F415, U+1F41F, U+1F426, U+1F43F, U+1F441-1F442, U+1F444, U+1F446-1F449, U+1F44C-1F44E, U+1F453, U+1F46A, U+1F47D, U+1F4A3, U+1F4B0, U+1F4B3, U+1F4B9, U+1F4BB, U+1F4BF, U+1F4C8-1F4CB, U+1F4D6, U+1F4DA, U+1F4DF, U+1F4E3-1F4E6, U+1F4EA-1F4ED, U+1F4F7, U+1F4F9-1F4FB, U+1F4FD-1F4FE, U+1F503, U+1F507-1F50B, U+1F50D, U+1F512-1F513, U+1F53E-1F54A, U+1F54F-1F5FA, U+1F610, U+1F650-1F67F, U+1F687, U+1F68D, U+1F691, U+1F694, U+1F698, U+1F6AD, U+1F6B2, U+1F6B9-1F6BA, U+1F6BC, U+1F6C6-1F6CF, U+1F6D3-1F6D7, U+1F6E0-1F6EA, U+1F6F0-1F6F3, U+1F6F7-1F6FC, U+1F700-1F7FF, U+1F800-1F80B, U+1F810-1F847, U+1F850-1F859, U+1F860-1F887, U+1F890-1F8AD, U+1F8B0-1F8BB, U+1F8C0-1F8C1, U+1F900-1F90B, U+1F93B, U+1F946, U+1F984, U+1F996, U+1F9E9, U+1FA00-1FA6F, U+1FA70-1FA7C, U+1FA80-1FA89, U+1FA8F-1FAC6, U+1FACE-1FADC, U+1FADF-1FAE9, U+1FAF0-1FAF8, U+1FB00-1FBFF;}@font-face{font-family:'Roboto';font-style:normal;font-weight:100 900;font-stretch:100%;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v48/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3OUBGEe.woff2) format('woff2');unicode-range:U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;}@font-face{font-family:'Roboto';font-style:normal;font-weight:100 900;font-stretch:100%;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v48/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3KUBGEe.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;}@font-face{font-family:'Roboto';font-style:normal;font-weight:100 900;font-stretch:100%;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v48/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3yUBA.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}</style>
+  <style>@font-face{font-family:'Roboto';font-style:normal;font-weight:300;font-stretch:100%;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v48/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3GUBGEe.woff2) format('woff2');unicode-range:U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;}@font-face{font-family:'Roboto';font-style:normal;font-weight:300;font-stretch:100%;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v48/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3iUBGEe.woff2) format('woff2');unicode-range:U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;}@font-face{font-family:'Roboto';font-style:normal;font-weight:300;font-stretch:100%;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v48/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3CUBGEe.woff2) format('woff2');unicode-range:U+1F00-1FFF;}@font-face{font-family:'Roboto';font-style:normal;font-weight:300;font-stretch:100%;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v48/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3-UBGEe.woff2) format('woff2');unicode-range:U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;}@font-face{font-family:'Roboto';font-style:normal;font-weight:300;font-stretch:100%;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v48/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMawCUBGEe.woff2) format('woff2');unicode-range:U+0302-0303, U+0305, U+0307-0308, U+0310, U+0312, U+0315, U+031A, U+0326-0327, U+032C, U+032F-0330, U+0332-0333, U+0338, U+033A, U+0346, U+034D, U+0391-03A1, U+03A3-03A9, U+03B1-03C9, U+03D1, U+03D5-03D6, U+03F0-03F1, U+03F4-03F5, U+2016-2017, U+2034-2038, U+203C, U+2040, U+2043, U+2047, U+2050, U+2057, U+205F, U+2070-2071, U+2074-208E, U+2090-209C, U+20D0-20DC, U+20E1, U+20E5-20EF, U+2100-2112, U+2114-2115, U+2117-2121, U+2123-214F, U+2190, U+2192, U+2194-21AE, U+21B0-21E5, U+21F1-21F2, U+21F4-2211, U+2213-2214, U+2216-22FF, U+2308-230B, U+2310, U+2319, U+231C-2321, U+2336-237A, U+237C, U+2395, U+239B-23B7, U+23D0, U+23DC-23E1, U+2474-2475, U+25AF, U+25B3, U+25B7, U+25BD, U+25C1, U+25CA, U+25CC, U+25FB, U+266D-266F, U+27C0-27FF, U+2900-2AFF, U+2B0E-2B11, U+2B30-2B4C, U+2BFE, U+3030, U+FF5B, U+FF5D, U+1D400-1D7FF, U+1EE00-1EEFF;}@font-face{font-family:'Roboto';font-style:normal;font-weight:300;font-stretch:100%;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v48/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMaxKUBGEe.woff2) format('woff2');unicode-range:U+0001-000C, U+000E-001F, U+007F-009F, U+20DD-20E0, U+20E2-20E4, U+2150-218F, U+2190, U+2192, U+2194-2199, U+21AF, U+21E6-21F0, U+21F3, U+2218-2219, U+2299, U+22C4-22C6, U+2300-243F, U+2440-244A, U+2460-24FF, U+25A0-27BF, U+2800-28FF, U+2921-2922, U+2981, U+29BF, U+29EB, U+2B00-2BFF, U+4DC0-4DFF, U+FFF9-FFFB, U+10140-1018E, U+10190-1019C, U+101A0, U+101D0-101FD, U+102E0-102FB, U+10E60-10E7E, U+1D2C0-1D2D3, U+1D2E0-1D37F, U+1F000-1F0FF, U+1F100-1F1AD, U+1F1E6-1F1FF, U+1F30D-1F30F, U+1F315, U+1F31C, U+1F31E, U+1F320-1F32C, U+1F336, U+1F378, U+1F37D, U+1F382, U+1F393-1F39F, U+1F3A7-1F3A8, U+1F3AC-1F3AF, U+1F3C2, U+1F3C4-1F3C6, U+1F3CA-1F3CE, U+1F3D4-1F3E0, U+1F3ED, U+1F3F1-1F3F3, U+1F3F5-1F3F7, U+1F408, U+1F415, U+1F41F, U+1F426, U+1F43F, U+1F441-1F442, U+1F444, U+1F446-1F449, U+1F44C-1F44E, U+1F453, U+1F46A, U+1F47D, U+1F4A3, U+1F4B0, U+1F4B3, U+1F4B9, U+1F4BB, U+1F4BF, U+1F4C8-1F4CB, U+1F4D6, U+1F4DA, U+1F4DF, U+1F4E3-1F4E6, U+1F4EA-1F4ED, U+1F4F7, U+1F4F9-1F4FB, U+1F4FD-1F4FE, U+1F503, U+1F507-1F50B, U+1F50D, U+1F512-1F513, U+1F53E-1F54A, U+1F54F-1F5FA, U+1F610, U+1F650-1F67F, U+1F687, U+1F68D, U+1F691, U+1F694, U+1F698, U+1F6AD, U+1F6B2, U+1F6B9-1F6BA, U+1F6BC, U+1F6C6-1F6CF, U+1F6D3-1F6D7, U+1F6E0-1F6EA, U+1F6F0-1F6F3, U+1F6F7-1F6FC, U+1F700-1F7FF, U+1F800-1F80B, U+1F810-1F847, U+1F850-1F859, U+1F860-1F887, U+1F890-1F8AD, U+1F8B0-1F8BB, U+1F8C0-1F8C1, U+1F900-1F90B, U+1F93B, U+1F946, U+1F984, U+1F996, U+1F9E9, U+1FA00-1FA6F, U+1FA70-1FA7C, U+1FA80-1FA89, U+1FA8F-1FAC6, U+1FACE-1FADC, U+1FADF-1FAE9, U+1FAF0-1FAF8, U+1FB00-1FBFF;}@font-face{font-family:'Roboto';font-style:normal;font-weight:300;font-stretch:100%;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v48/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3OUBGEe.woff2) format('woff2');unicode-range:U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;}@font-face{font-family:'Roboto';font-style:normal;font-weight:300;font-stretch:100%;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v48/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3KUBGEe.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;}@font-face{font-family:'Roboto';font-style:normal;font-weight:300;font-stretch:100%;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v48/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3yUBA.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}@font-face{font-family:'Roboto';font-style:normal;font-weight:400;font-stretch:100%;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v48/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3GUBGEe.woff2) format('woff2');unicode-range:U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;}@font-face{font-family:'Roboto';font-style:normal;font-weight:400;font-stretch:100%;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v48/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3iUBGEe.woff2) format('woff2');unicode-range:U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;}@font-face{font-family:'Roboto';font-style:normal;font-weight:400;font-stretch:100%;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v48/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3CUBGEe.woff2) format('woff2');unicode-range:U+1F00-1FFF;}@font-face{font-family:'Roboto';font-style:normal;font-weight:400;font-stretch:100%;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v48/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3-UBGEe.woff2) format('woff2');unicode-range:U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;}@font-face{font-family:'Roboto';font-style:normal;font-weight:400;font-stretch:100%;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v48/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMawCUBGEe.woff2) format('woff2');unicode-range:U+0302-0303, U+0305, U+0307-0308, U+0310, U+0312, U+0315, U+031A, U+0326-0327, U+032C, U+032F-0330, U+0332-0333, U+0338, U+033A, U+0346, U+034D, U+0391-03A1, U+03A3-03A9, U+03B1-03C9, U+03D1, U+03D5-03D6, U+03F0-03F1, U+03F4-03F5, U+2016-2017, U+2034-2038, U+203C, U+2040, U+2043, U+2047, U+2050, U+2057, U+205F, U+2070-2071, U+2074-208E, U+2090-209C, U+20D0-20DC, U+20E1, U+20E5-20EF, U+2100-2112, U+2114-2115, U+2117-2121, U+2123-214F, U+2190, U+2192, U+2194-21AE, U+21B0-21E5, U+21F1-21F2, U+21F4-2211, U+2213-2214, U+2216-22FF, U+2308-230B, U+2310, U+2319, U+231C-2321, U+2336-237A, U+237C, U+2395, U+239B-23B7, U+23D0, U+23DC-23E1, U+2474-2475, U+25AF, U+25B3, U+25B7, U+25BD, U+25C1, U+25CA, U+25CC, U+25FB, U+266D-266F, U+27C0-27FF, U+2900-2AFF, U+2B0E-2B11, U+2B30-2B4C, U+2BFE, U+3030, U+FF5B, U+FF5D, U+1D400-1D7FF, U+1EE00-1EEFF;}@font-face{font-family:'Roboto';font-style:normal;font-weight:400;font-stretch:100%;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v48/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMaxKUBGEe.woff2) format('woff2');unicode-range:U+0001-000C, U+000E-001F, U+007F-009F, U+20DD-20E0, U+20E2-20E4, U+2150-218F, U+2190, U+2192, U+2194-2199, U+21AF, U+21E6-21F0, U+21F3, U+2218-2219, U+2299, U+22C4-22C6, U+2300-243F, U+2440-244A, U+2460-24FF, U+25A0-27BF, U+2800-28FF, U+2921-2922, U+2981, U+29BF, U+29EB, U+2B00-2BFF, U+4DC0-4DFF, U+FFF9-FFFB, U+10140-1018E, U+10190-1019C, U+101A0, U+101D0-101FD, U+102E0-102FB, U+10E60-10E7E, U+1D2C0-1D2D3, U+1D2E0-1D37F, U+1F000-1F0FF, U+1F100-1F1AD, U+1F1E6-1F1FF, U+1F30D-1F30F, U+1F315, U+1F31C, U+1F31E, U+1F320-1F32C, U+1F336, U+1F378, U+1F37D, U+1F382, U+1F393-1F39F, U+1F3A7-1F3A8, U+1F3AC-1F3AF, U+1F3C2, U+1F3C4-1F3C6, U+1F3CA-1F3CE, U+1F3D4-1F3E0, U+1F3ED, U+1F3F1-1F3F3, U+1F3F5-1F3F7, U+1F408, U+1F415, U+1F41F, U+1F426, U+1F43F, U+1F441-1F442, U+1F444, U+1F446-1F449, U+1F44C-1F44E, U+1F453, U+1F46A, U+1F47D, U+1F4A3, U+1F4B0, U+1F4B3, U+1F4B9, U+1F4BB, U+1F4BF, U+1F4C8-1F4CB, U+1F4D6, U+1F4DA, U+1F4DF, U+1F4E3-1F4E6, U+1F4EA-1F4ED, U+1F4F7, U+1F4F9-1F4FB, U+1F4FD-1F4FE, U+1F503, U+1F507-1F50B, U+1F50D, U+1F512-1F513, U+1F53E-1F54A, U+1F54F-1F5FA, U+1F610, U+1F650-1F67F, U+1F687, U+1F68D, U+1F691, U+1F694, U+1F698, U+1F6AD, U+1F6B2, U+1F6B9-1F6BA, U+1F6BC, U+1F6C6-1F6CF, U+1F6D3-1F6D7, U+1F6E0-1F6EA, U+1F6F0-1F6F3, U+1F6F7-1F6FC, U+1F700-1F7FF, U+1F800-1F80B, U+1F810-1F847, U+1F850-1F859, U+1F860-1F887, U+1F890-1F8AD, U+1F8B0-1F8BB, U+1F8C0-1F8C1, U+1F900-1F90B, U+1F93B, U+1F946, U+1F984, U+1F996, U+1F9E9, U+1FA00-1FA6F, U+1FA70-1FA7C, U+1FA80-1FA89, U+1FA8F-1FAC6, U+1FACE-1FADC, U+1FADF-1FAE9, U+1FAF0-1FAF8, U+1FB00-1FBFF;}@font-face{font-family:'Roboto';font-style:normal;font-weight:400;font-stretch:100%;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v48/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3OUBGEe.woff2) format('woff2');unicode-range:U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;}@font-face{font-family:'Roboto';font-style:normal;font-weight:400;font-stretch:100%;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v48/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3KUBGEe.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;}@font-face{font-family:'Roboto';font-style:normal;font-weight:400;font-stretch:100%;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v48/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3yUBA.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}@font-face{font-family:'Roboto';font-style:normal;font-weight:500;font-stretch:100%;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v48/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3GUBGEe.woff2) format('woff2');unicode-range:U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;}@font-face{font-family:'Roboto';font-style:normal;font-weight:500;font-stretch:100%;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v48/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3iUBGEe.woff2) format('woff2');unicode-range:U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;}@font-face{font-family:'Roboto';font-style:normal;font-weight:500;font-stretch:100%;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v48/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3CUBGEe.woff2) format('woff2');unicode-range:U+1F00-1FFF;}@font-face{font-family:'Roboto';font-style:normal;font-weight:500;font-stretch:100%;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v48/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3-UBGEe.woff2) format('woff2');unicode-range:U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;}@font-face{font-family:'Roboto';font-style:normal;font-weight:500;font-stretch:100%;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v48/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMawCUBGEe.woff2) format('woff2');unicode-range:U+0302-0303, U+0305, U+0307-0308, U+0310, U+0312, U+0315, U+031A, U+0326-0327, U+032C, U+032F-0330, U+0332-0333, U+0338, U+033A, U+0346, U+034D, U+0391-03A1, U+03A3-03A9, U+03B1-03C9, U+03D1, U+03D5-03D6, U+03F0-03F1, U+03F4-03F5, U+2016-2017, U+2034-2038, U+203C, U+2040, U+2043, U+2047, U+2050, U+2057, U+205F, U+2070-2071, U+2074-208E, U+2090-209C, U+20D0-20DC, U+20E1, U+20E5-20EF, U+2100-2112, U+2114-2115, U+2117-2121, U+2123-214F, U+2190, U+2192, U+2194-21AE, U+21B0-21E5, U+21F1-21F2, U+21F4-2211, U+2213-2214, U+2216-22FF, U+2308-230B, U+2310, U+2319, U+231C-2321, U+2336-237A, U+237C, U+2395, U+239B-23B7, U+23D0, U+23DC-23E1, U+2474-2475, U+25AF, U+25B3, U+25B7, U+25BD, U+25C1, U+25CA, U+25CC, U+25FB, U+266D-266F, U+27C0-27FF, U+2900-2AFF, U+2B0E-2B11, U+2B30-2B4C, U+2BFE, U+3030, U+FF5B, U+FF5D, U+1D400-1D7FF, U+1EE00-1EEFF;}@font-face{font-family:'Roboto';font-style:normal;font-weight:500;font-stretch:100%;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v48/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMaxKUBGEe.woff2) format('woff2');unicode-range:U+0001-000C, U+000E-001F, U+007F-009F, U+20DD-20E0, U+20E2-20E4, U+2150-218F, U+2190, U+2192, U+2194-2199, U+21AF, U+21E6-21F0, U+21F3, U+2218-2219, U+2299, U+22C4-22C6, U+2300-243F, U+2440-244A, U+2460-24FF, U+25A0-27BF, U+2800-28FF, U+2921-2922, U+2981, U+29BF, U+29EB, U+2B00-2BFF, U+4DC0-4DFF, U+FFF9-FFFB, U+10140-1018E, U+10190-1019C, U+101A0, U+101D0-101FD, U+102E0-102FB, U+10E60-10E7E, U+1D2C0-1D2D3, U+1D2E0-1D37F, U+1F000-1F0FF, U+1F100-1F1AD, U+1F1E6-1F1FF, U+1F30D-1F30F, U+1F315, U+1F31C, U+1F31E, U+1F320-1F32C, U+1F336, U+1F378, U+1F37D, U+1F382, U+1F393-1F39F, U+1F3A7-1F3A8, U+1F3AC-1F3AF, U+1F3C2, U+1F3C4-1F3C6, U+1F3CA-1F3CE, U+1F3D4-1F3E0, U+1F3ED, U+1F3F1-1F3F3, U+1F3F5-1F3F7, U+1F408, U+1F415, U+1F41F, U+1F426, U+1F43F, U+1F441-1F442, U+1F444, U+1F446-1F449, U+1F44C-1F44E, U+1F453, U+1F46A, U+1F47D, U+1F4A3, U+1F4B0, U+1F4B3, U+1F4B9, U+1F4BB, U+1F4BF, U+1F4C8-1F4CB, U+1F4D6, U+1F4DA, U+1F4DF, U+1F4E3-1F4E6, U+1F4EA-1F4ED, U+1F4F7, U+1F4F9-1F4FB, U+1F4FD-1F4FE, U+1F503, U+1F507-1F50B, U+1F50D, U+1F512-1F513, U+1F53E-1F54A, U+1F54F-1F5FA, U+1F610, U+1F650-1F67F, U+1F687, U+1F68D, U+1F691, U+1F694, U+1F698, U+1F6AD, U+1F6B2, U+1F6B9-1F6BA, U+1F6BC, U+1F6C6-1F6CF, U+1F6D3-1F6D7, U+1F6E0-1F6EA, U+1F6F0-1F6F3, U+1F6F7-1F6FC, U+1F700-1F7FF, U+1F800-1F80B, U+1F810-1F847, U+1F850-1F859, U+1F860-1F887, U+1F890-1F8AD, U+1F8B0-1F8BB, U+1F8C0-1F8C1, U+1F900-1F90B, U+1F93B, U+1F946, U+1F984, U+1F996, U+1F9E9, U+1FA00-1FA6F, U+1FA70-1FA7C, U+1FA80-1FA89, U+1FA8F-1FAC6, U+1FACE-1FADC, U+1FADF-1FAE9, U+1FAF0-1FAF8, U+1FB00-1FBFF;}@font-face{font-family:'Roboto';font-style:normal;font-weight:500;font-stretch:100%;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v48/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3OUBGEe.woff2) format('woff2');unicode-range:U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;}@font-face{font-family:'Roboto';font-style:normal;font-weight:500;font-stretch:100%;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v48/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3KUBGEe.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;}@font-face{font-family:'Roboto';font-style:normal;font-weight:500;font-stretch:100%;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v48/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3yUBA.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}</style>
+  <style>@font-face{font-family:'Material Icons';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/materialicons/v143/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2) format('woff2');}.material-icons{font-family:'Material Icons';font-weight:normal;font-style:normal;font-size:24px;line-height:1;letter-spacing:normal;text-transform:none;display:inline-block;white-space:nowrap;word-wrap:normal;direction:ltr;-webkit-font-feature-settings:'liga';-webkit-font-smoothing:antialiased;}</style>
+<link rel="stylesheet" href="styles-6ZN2XR7B.css"></head>
+<body class="mat-typography"><script type="text/javascript" id="ng-event-dispatch-contract">(()=>{function p(t,n,r,o,e,i,f,m){return{eventType:t,event:n,targetElement:r,eic:o,timeStamp:e,eia:i,eirp:f,eiack:m}}function u(t){let n=[],r=e=>{n.push(e)};return{c:t,q:n,et:[],etc:[],d:r,h:e=>{r(p(e.type,e,e.target,t,Date.now()))}}}function s(t,n,r){for(let o=0;o<n.length;o++){let e=n[o];(r?t.etc:t.et).push(e),t.c.addEventListener(e,t.h,r)}}function c(t,n,r,o,e=window){let i=u(t);e._ejsas||(e._ejsas={}),e._ejsas[n]=i,s(i,r),s(i,o,!0)}window.__jsaction_bootstrap=c;})();
+</script>
+  <app-root></app-root>
+
+
+  <script>
+    // WEBCHAT2 Beta
+    var chatAppId = "20363";
+    var channelId = "294";
+
+    var chatName = "Mongol post virtual ажилтан";
+    var chatNameEng = "Mongol post virtual assistant";
+    var chatLogo = "https://app.iva.mn/storage/20363/company/channel/f6e0b029-ffa4-4980-90be-4a9c6afc14ab";
+    var chatBackgroundColor = "#E41B1B";
+    var chatTextColor = "#000000";
+    var chatGreetingMessage = "Сайн байна уу танд юугаар туслах вэ?";
+    var chatGreetingMessageEng = "Hello, how can i help you?";
+    var currentLang = "mn";
+
+    // default
+    var btnIcon = \`<svg xmlns="http://www.w3.org/2000/svg" width="41" height="24" viewBox="0 0 41 24" fill="none">
+    <path d="M14.9043 12.431C15.7428 12.431 16.4225 11.7512 16.4225 10.9127C16.4225 10.0742 15.7428 9.39441 14.9043 9.39441C14.0657 9.39441 13.386 10.0742 13.386 10.9127C13.386 11.7512 14.0657 12.431 14.9043 12.431Z" fill="\${chatTextColor}"/>
+    <path d="M25.0957 12.431C25.9342 12.431 26.614 11.7512 26.614 10.9127C26.614 10.0742 25.9342 9.39441 25.0957 9.39441C24.2571 9.39441 23.5774 10.0742 23.5774 10.9127C23.5774 11.7512 24.2571 12.431 25.0957 12.431Z" fill="\${chatTextColor}"/>
+    <path d="M21.8427 13.0699C22.0322 13.0699 22.1903 13.2272 22.1312 13.4073C22.104 13.4904 22.0666 13.5719 22.0195 13.651C21.9096 13.8352 21.7486 14.0025 21.5457 14.1435C21.3427 14.2845 21.1017 14.3963 20.8366 14.4726C20.5714 14.5489 20.2871 14.5882 20.0001 14.5882C19.713 14.5882 19.4288 14.5489 19.1636 14.4726C18.8984 14.3963 18.6575 14.2845 18.4545 14.1435C18.2515 14.0025 18.0905 13.8352 17.9807 13.651C17.9335 13.5719 17.8962 13.4904 17.869 13.4073C17.8099 13.2272 17.968 13.0699 18.1575 13.0699H20.0001H21.8427Z" fill="\${chatTextColor}"/>
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M14.125 4.74575H26.1274C30.2028 4.74575 33.5066 8.04954 33.5066 12.125C33.5066 16.0736 30.4051 19.2979 26.5053 19.4947L23.7501 22.2499H26.1274C31.7193 22.2499 36.2524 17.7168 36.2524 12.125C36.2524 6.5331 31.7193 2 26.1274 2H14.125C8.5331 2 4 6.5331 4 12.125C4 17.7168 8.5331 22.2499 14.125 22.2499H23.5V19.4969L14.125 19.5042C10.0495 19.5042 6.74575 16.2004 6.74575 12.125C6.74575 8.04954 10.0495 4.74575 14.125 4.74575Z" fill="\${chatTextColor}"/>
+    </svg>\`;
+
+    const fontLink = document.createElement("link");
+    fontLink.rel = "stylesheet";
+    fontLink.href = "https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap";
+
+    document.head.appendChild(fontLink);
+
+    var isOpen = false;
+    var responsiveType = false;
+    var buttonInner = "";
+    var logined = false;
+
+    if (btnIcon == null) {
+      btnIcon = "https://golomt.iva.mn/storage/Symbol.svg";
+      buttonInner = \`<input type="image" id="myimage" style="height:40px;width:40px;" src="\${btnIcon}" />\`;
+    }
+
+    var chatBoxStyle = \`
+      z-index:1999; 
+      overflow:auto;
+      visibility:hidden;
+      border-radius: 20px;
+      position: fixed;
+      bottom: 112px;
+      right: 40px;
+      box-shadow: 0px 16px 32px 0px rgba(29, 33, 45, 0.10), 0px 1px 4px 0px rgba(29, 33, 45, 0.15), 0px 0px 1px 0px rgba(29, 33, 45, 0.20);
+      box-sizing: border-box;
+      transition: all 0.3s ease-in-out;
+      transform: scale(0.3);
+      transform-origin: bottom right;
+      width: 375px;
+      height: 664px;
+      \`;
+
+    var chatBtnStyle = \`
+      z-index: 999;
+      width: 56px;
+      height: 56px;
+      border-radius: 100px;
+      font-size: 40px;
+      box-shadow: 0px 2px 4px 0px rgba(29, 33, 45, 0.08), 0px 0px 2px 0px rgba(29, 33, 45, 0.08), 0px 0px 1px 0px rgba(29, 33, 45, 0.20);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: fixed;
+      right: 40px;
+      bottom: 40px;
+      border: none;
+      cursor: pointer;
+      background-color: \${chatBackgroundColor};
+      transition: transform 0.2s;
+      padding: 1px 6px;
+    \`;
+
+    var full_screen_style = \`
+      z-index: 1999; 
+      border-radius: 20px; 
+      position: fixed; 
+      width: 100%; 
+      height: 100%; 
+      top: 0;
+    \`;
+
+    setCookie("app_name", chatAppId);
+
+    function setCookie(name, value) {
+      var expires = "";
+      document.cookie = name + "=" + (value || "") + expires + "; path=/";
+    }
+
+    window.addEventListener("load", function () {
+      let langCode = localStorage.getItem("languageCode");
+      if (langCode) {
+        currentLang = langCode;
+      } else {
+        currentLang = "mn";
+      }
+          
+      if (document.body != null) {
+        const chatbotElement = document.createElement("div");
+        chatbotElement.className = "egune-chat";
+        chatbotElement.id = "egune-chat";
+        chatbotElement.style.zIndex = "9999";
+        chatbotElement.style.position = "fixed";
+
+        const chatBoxElement = document.createElement("div");
+        chatBoxElement.className = "egune-chat-box";
+        chatbotElement.appendChild(chatBoxElement);
+
+        let greetingBox = greetingBoxCreater();
+        chatbotElement.appendChild(greetingBox);
+
+        setTimeout(() => {
+          chatbotElement.removeChild(greetingBox);
+          localStorage.setItem("lastGreetingTime", Date.now());
+        }, 10000);
+
+        const buttonElement = document.createElement("button");
+        buttonElement.className = "floating-btn";
+        buttonElement.addEventListener("click", buttonClick);
+        buttonElement.addEventListener("mouseover", () => {
+        document.getElementsByClassName("floating-btn")[0].style.transform = "scale(1.1)";
+        });
+        buttonElement.addEventListener("mouseleave", () => {
+        document.getElementsByClassName("floating-btn")[0].style.transform = "scale(1)";
+        });
+        chatbotElement.appendChild(buttonElement);
+
+        document.body.appendChild(chatbotElement);
+      } else {
+        const rootElement = document.documentElement;
+        const firstTier = rootElement.childNodes;
+
+        firstTier[1].innerHTML = firstTier[0].innerHTML + \`<div class="egune-chat" style="z-index: 999;position:fixed !important"><div class="egune-chat-box"></div><button class="floating-btn" onclick="buttonClick()">\${buttonInner}</button></div>\`;
+      }
+      const floatingBtn = document.getElementsByClassName("floating-btn")[0];
+      floatingBtn.innerHTML = btnIcon;
+      floatingBtn.style = chatBtnStyle;
+    });
+
+    function greetingBoxCreater() {
+      const createElement = (tag, className, attributes = {}) => {
+        const el = document.createElement(tag);
+        if (className) el.className = className;
+        Object.entries(attributes).forEach(([key, value]) => (el[key] = value));
+        return el;
+      };
+
+      const greetingBox = createElement("div", "egune-greeting-box", { id: "egune-greeting-box" });
+      const header = createElement("div", "egune-bot-header");
+      const emoji = createElement("span", "egune-greeting-emoji", { textContent: \`👋  \` });
+      const title = createElement("span", "egune-greeting-title", { textContent: currentLang == "mn" ? \`Сайн байна уу.\` : "Hello there!" });
+      const closeButton = createElement("button", "close-button", {
+        innerHTML: \`
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M3.52925 3.52851C3.7896 3.26816 4.21171 3.26816 4.47206 3.52851L8.00065 7.05711L11.5292 3.52851C11.7896 3.26816 12.2117 3.26816 12.4721 3.52851C12.7324 3.78886 12.7324 4.21097 12.4721 4.47132L8.94346 7.99992L12.4721 11.5285C12.7324 11.7889 12.7324 12.211 12.4721 12.4713C12.2117 12.7317 11.7896 12.7317 11.5292 12.4713L8.00065 8.94273L4.47206 12.4713C4.21171 12.7317 3.7896 12.7317 3.52925 12.4713C3.2689 12.211 3.2689 11.7889 3.52925 11.5285L7.05784 7.99992L3.52925 4.47132C3.2689 4.21097 3.2689 3.78886 3.52925 3.52851Z" fill="#4C505D"/>
+          </svg>
+      \`,
+      });
+      const description = createElement("span", "egune-greeting-desc", { textContent: currentLang == "mn" ? "Танд юугаар туслах вэ?" : "How can i help you?" });
+      closeButton.addEventListener("click", () => {
+        greetingBox.style.display = "none";
+        localStorage.setItem("lastGreetingTime", Date.now());
+      });
+      header.append(emoji, title, closeButton);
+      greetingBox.append(header, description);
+
+      const style = document.createElement("style");
+      style.textContent = \`
+          .egune-greeting-box {
+            background-color: white;
+            border-radius: 12px;
+            width: 100%;
+            max-width:230px;
+            height: 100%;
+            max-height: 90px;
+            padding: 10px 16px 20px 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            position: fixed;
+            right: 40px;
+            bottom: 108px;
+            box-sizing:border-box;
+            box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.16);
+          }
+          .egune-greeting-box .egune-bot-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+          }
+          .egune-greeting-box .egune-bot-header .close-button {
+            display: flex;
+            align-items: center;
+            margin-left: auto;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+          }
+          .egune-greeting-title {
+            color: #353841;
+            font-family: Inter;
+            font-size: 14px;
+            font-weight: 700;
+            line-height: 24px;
+            letter-spacing: -0.09px;
+          }
+          .egune-greeting-desc {
+            color: #22242A;
+            font-family: Inter;
+            font-size: 14px;
+            line-height: 24px;
+            letter-spacing: -0.09px;
+          }
+      \`;
+      document.head.appendChild(style);
+
+      return greetingBox;
+    }
+
+    function initChat() {
+      let chatBoxEl = document.getElementsByClassName("egune-chat-box")[0];
+      chatBoxEl.innerHTML = \`
+        <iframe allow="microphone" id='chimegeChatBotId' scrolling="no" src="https://webchat2.iva.mn" 
+        style="border: none; margin: 0; padding: 0;display: flex; 
+        width: 100%; height: 100%; object-fit: cover; flex-direction: column;"></iframe>\`;
+      chatBoxEl.style = chatBoxStyle + \`transform: scale(0);\`;
+      if (window.matchMedia("(max-width: 430px)").matches) {
+        responsiveType = "full_screen";
+      } else {
+        responsiveType = "large";
+      }
+      responsive();
+    }
+
+    function responsive() {
+      const chatBoxEl = document.getElementsByClassName("egune-chat-box")[0];
+      const floatingBtn = document.getElementsByClassName("floating-btn")[0];
+
+      const setLoginHeightStyle = () => (logined ? "height:664px !important;" : "height:490px !important;");
+
+      const setFloatingBtnStyle = () => {
+        if (window.matchMedia("(max-height: 800px)").matches) {
+          return \`\${chatBtnStyle}right: 20px !important; bottom: 20px !important;\`;
+        }
+        return \`\${chatBtnStyle}\`;
+      };
+
+      const setChatBoxStyle = () => {
+        let loginHeightStyle = setLoginHeightStyle();
+        if (window.matchMedia("(max-height: 800px)").matches) {
+          loginHeightStyle = "height:80% !important; bottom: 82px !important; right: 20px !important;";
+        }
+
+        if (window.matchMedia("(max-width: 430px)").matches) {
+          responsiveType = "full_screen";
+          return full_screen_style;
+        }
+        responsiveType = "large";
+        return \`\${chatBoxStyle}\${loginHeightStyle}\`;
+      };
+
+      const updateChatBoxVisibility = () => {
+        const responsiveStyle = setChatBoxStyle();
+        if (isOpen) {
+          chatBoxEl.style = \`\${responsiveStyle}opacity:1; visibility:visible; transform: scale(1);\`;
+        } else {
+          chatBoxEl.style = \`\${responsiveStyle}opacity:0; visibility:hidden;\`;
+        }
+      };
+
+      window.addEventListener("resize", () => {
+        floatingBtn.style = setFloatingBtnStyle();
+        updateChatBoxVisibility();
+      });
+    }
+
+    function buttonClick() {
+      const greetingBox = document.getElementById("egune-greeting-box");
+      const floatingBtn = document.getElementsByClassName("floating-btn")[0];
+      const chatBoxEl = document.getElementsByClassName("egune-chat-box")[0];
+
+      if (greetingBox) {
+        greetingBox.style.display = "none";
+        localStorage.setItem("lastGreetingTime", Date.now());
+      }
+
+      let login_height_style = "";
+      if (!logined) {
+        login_height_style = "height: 490px !important;";
+      }
+
+      if (!isOpen) {
+        initChat();
+      }
+
+      floatingBtn.style.transform = "scale(1.0)";
+      setTimeout(() => {
+        document.getElementsByClassName("floating-btn")[0].style.transform = "scale(1.1)";
+      }, 150);
+
+      // chatBoxEl.style = isOpen ? chatBoxStyle + \`opacity: 0; transform: scale(0.3); visibility:hidden;\` : chatBoxStyle + \`opacity: 1; transform: scale(1); visibility:visible;\` + login_height_style;
+      if (isOpen) {
+        if (responsiveType == "full_screen") {
+          chatBoxEl.style =
+            full_screen_style +
+            \`opacity:0; transition: all 0.3s ease-in-out; transform: scale(0.3); transform-origin: bottom right; visibility:hidden;\`;
+        } else if (responsiveType == "small") {
+          chatBoxEl.style =
+            chatBoxStyle +
+            \`width:360px !important; height:600px !important; opacity:0; transform: scale(0.3); visibility: hidden;\`;
+        } else {
+          chatBoxEl.style =
+            chatBoxStyle + \`opacity: 0; transform: scale(0.3); visibility:hidden;\`;
+        }
+      } else {
+        if (responsiveType == "full_screen") {
+          chatBoxEl.style =
+            full_screen_style +
+            \`opacity:1; transition: all 0.3s ease-in-out; transform: scale(1); transform-origin: bottom right;visibility:visible\`;
+        } else if (responsiveType == "small") {
+          chatBoxEl.style =
+            chatBoxStyle +
+            \`width:360px !important; height:600px !important; opacity:1; transform: scale(1); visibility:visible;\` +
+            login_height_style;
+        } else {
+          chatBoxEl.style =
+            chatBoxStyle +
+            \`opacity: 1; transform: scale(1); visibility:visible;\` +
+            login_height_style;
+        }
+      }
+      isOpen = !isOpen;
+    }
+
+    window.addEventListener("message", handleMessage, false);
+
+    function handleMessage(event) {
+      if (event.origin != "https://webchat2.iva.mn") {
+        return;
+      }
+      if (event.data == "close_iframe") {
+        buttonClick();
+      } else if (event.data == "loadiFrame") {
+        checklocalStorage();
+      } else if (event.data.type == "logined") {
+        logined = event.data.value;
+        let chatBoxEl = document.getElementsByClassName("egune-chat-box")[0];
+        if (!logined) {
+          localStorage.removeItem("messages");
+        } else {
+          if (responsiveType == "large") {
+            chatBoxEl.style.height = "664px";
+          }
+        }
+      } else if (event.data.type == "messages") {
+        localStorage.setItem("messages", JSON.stringify(event.data.value));
+      }
+    }
+
+    function checklocalStorage() {
+      const dateTime = new Date();
+
+      changeLanguage(currentLang);
+      var localStorageClear = false;
+      var chatMessages = JSON.parse(localStorage.getItem("messages"));
+      var companyVariables = {
+        appId: chatAppId,
+        channelId: channelId,
+        name: currentLang == "mn" ? chatName : chatNameEng,
+        logo: chatLogo,
+        backgroundColor: chatBackgroundColor,
+        textColor: chatTextColor,
+        greetingMessage: currentLang == "mn" ? chatGreetingMessage : chatGreetingMessageEng,
+        localMessage: "",
+      };
+
+      if (JSON.parse(chatMessages) && JSON.parse(chatMessages).length > 0) {
+        var lastMessage = JSON.parse(chatMessages)[JSON.parse(chatMessages).length - 1];
+        var lastMessageTimeStr = lastMessage.timestamp;
+
+        var [lastMessageHour, lastMessageMinute] = lastMessageTimeStr.split(":").map(Number);
+
+        var lastMessageTime = new Date(dateTime);
+        lastMessageTime.setHours(lastMessageHour, lastMessageMinute, 0, 0);
+        var hoursSinceLastMessage = (dateTime - lastMessageTime) / (1000 * 60 * 60);
+        if (hoursSinceLastMessage > 3) {
+          localStorageClear = true;
+        } else {
+          localStorageClear = false;
+        }
+
+        if (localStorageClear) {
+          localStorage.removeItem("messages");
+          document.getElementById("chimegeChatBotId").contentWindow.postMessage(
+            {
+              type: "login",
+              variables: companyVariables,
+            },
+            "*"
+          );
+        } else {
+          logined = true;
+          companyVariables.localMessage = chatMessages;
+          document.getElementById("chimegeChatBotId").contentWindow.postMessage(
+            {
+              type: "start_chat",
+              variables: companyVariables,
+            },
+            "*"
+          );
+        }
+      } else {
+        document.getElementById("chimegeChatBotId").contentWindow.postMessage(
+          {
+            type: "login",
+            variables: companyVariables,
+          },
+          "*"
+        );
+      }
+    }
+
+    window.changeLanguage = function (langCode) {
+      currentLang = langCode;
+      chatbotElement = document.getElementById("egune-chat");
+      let greetingBox = greetingBoxCreater();
+      let existingGreetingBox = document.getElementById("egune-greeting-box");
+      if (existingGreetingBox) {
+        chatbotElement.removeChild(existingGreetingBox);
+      }
+
+      chatbotElement.appendChild(greetingBox);
+      var companyVariables = {
+        appId: chatAppId,
+        channelId: channelId,
+        name: currentLang == "mn" ? chatName : chatNameEng,
+        logo: chatLogo,
+        backgroundColor: chatBackgroundColor,
+        textColor: chatTextColor,
+        greetingMessage: currentLang == "mn" ? chatGreetingMessage : chatGreetingMessageEng,
+        localMessage: "",
+        langCode: langCode,
+      };
+      if (document.getElementById("chimegeChatBotId") !== null) {
+        document.getElementById("chimegeChatBotId").contentWindow.postMessage(
+          {
+            type: "change_lang",
+            variables: companyVariables,
+          },
+          "*"
+        );
+      }
+      localStorage.setItem("languageCode", langCode);
+    };
+
+  </script>
+<link rel="modulepreload" href="chunk-UACZ5JAW.js"><link rel="modulepreload" href="chunk-2VMXMS7J.js"><script src="polyfills-FFHMD2TL.js" type="module"></script><script src="main-FTMRV7DT.js" type="module"></script></body>
+</html>
+`;
